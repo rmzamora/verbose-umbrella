@@ -6,13 +6,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-//Request::setTrustedProxies(array('127.0.0.1'));
+Request::setTrustedProxies(array('127.0.0.1'));
 
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html.twig', array());
-})
-->bind('homepage')
-;
+    return $app['twig']->render('index.html.twig',
+                                ['page_title'=> $app['app_vars']['page_title'],
+                                 'app_name'  => $app['app_vars']['app_name'],
+                                 'devtools'  => $app['app_vars']['devtools']]);
+})->bind('homepage');
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
