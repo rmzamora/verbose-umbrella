@@ -1,6 +1,6 @@
 {
-    "name": "fabpot/silex-skeleton",
-    "description": "A pre-configured skeleton for the Silex microframework",
+    "name": "rmzamora/verbose-umbrella",
+    "description": "Apache doc root home page built using Silex microframework",
     "license": "MIT",
     "type": "project",
     "require": {
@@ -30,11 +30,5 @@
         "branch-alias": {
             "dev-master": "2.0.x-dev"
         }
-    },
-    "scripts": {
-        "run": [
-            "echo 'Started web server on http://localhost:8888'",
-            "php -S localhost:8888 -t web"
-        ]
     }
 }
