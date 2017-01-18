@@ -33,7 +33,11 @@ $app->get('/', function () use ($app) {
 
         $apps[$dir->getBasename()]['url'] = $url;
 
-        $files = $finder->files()->name('composer.json')->in($dir->getPathname());
+
+        $temp = new Finder();
+
+        $files = $temp->files()->name('composer.json')->in($dir->getPathname());
+
         if(count($files) > 0) {
             $apps[$dir->getBasename()]['type'] = 'php';
             $apps[$dir->getBasename()]['img'] = $app['app_vars']['appimage']['php'][array_rand($app['app_vars']['appimage']['php'])];
